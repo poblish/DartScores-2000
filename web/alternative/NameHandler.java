@@ -1,0 +1,1 @@
+package hello;public class NameHandler{	private int		m_Num;	public NameHandler()	{		m_Num = 0;	}	public void setTotal( int inTotal)	{		m_Num = inTotal;	}	public int getTotal()	{		return m_Num;	}}
