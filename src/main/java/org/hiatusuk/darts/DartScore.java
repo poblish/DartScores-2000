@@ -13,10 +13,6 @@ class DartScore
 
     /*******************************************************************************
     *******************************************************************************/
-    public DartScore() {}
-
-    /*******************************************************************************
-    *******************************************************************************/
     public DartScore( int inNumber, int inMultiple)
     {
         Assign( inNumber, inMultiple);
@@ -32,7 +28,7 @@ class DartScore
 
     /*******************************************************************************
     *******************************************************************************/
-    public boolean equals( DartScore obj)
+    public boolean matches( DartScore obj)
     {
         return (( mNumber == obj.mNumber) && ( mMultiple == obj.mMultiple));
     }
@@ -53,6 +49,7 @@ class DartScore
 
     /*******************************************************************************
     *******************************************************************************/
+    @Override
     public String toString()
     {
         if ( mNumber == kBullValue)
@@ -67,7 +64,7 @@ class DartScore
             }
             else
             {
-                return "���" + mMultiple + "���";
+                return "***" + mMultiple + "***";
             }
         }
         else
@@ -88,7 +85,7 @@ class DartScore
             }
             else    thePrefix = "";
 
-            return ( thePrefix + new Integer(mNumber).toString());
+            return thePrefix + mNumber;
         }
     }
-};
+}

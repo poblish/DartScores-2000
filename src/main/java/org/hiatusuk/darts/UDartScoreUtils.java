@@ -10,7 +10,7 @@ public class UDartScoreUtils
 {
     /*******************************************************************************
      *******************************************************************************/
-    public static void RemoveAllDuplicates( Vector inVector)
+    public static void RemoveAllDuplicates( Vector<DartScoreSet> inVector)
     {
         DartScoreSet    iScore, jScore;
         int             lastIndex = inVector.size() - 1;
@@ -20,15 +20,15 @@ public class UDartScoreUtils
         {
             try
             {
-                iScore = (DartScoreSet) inVector.elementAt(i);
+                iScore = inVector.elementAt(i);
 
                 for ( int j = i + 1; j <= lastIndex; j++)
                 {
                     try
                     {
                         // System.out.println( i + "," + j);
-                        jScore = (DartScoreSet) inVector.elementAt(j);
-                        if ( jScore.equals(iScore))
+                        jScore = inVector.elementAt(j);
+                        if ( jScore.matches(iScore))
                         {
                             inVector.removeElement(jScore);
                             --j;
