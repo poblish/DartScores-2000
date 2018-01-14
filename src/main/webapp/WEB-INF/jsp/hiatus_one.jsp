@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
 	<%@ include file = "headertags.html" %>
-	<title>Hiatus One</title>
+	<title>Darts 2000</title>
 </head>
 
 <%@ include file = "introtable.html" %>

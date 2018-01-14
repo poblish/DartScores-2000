@@ -12,12 +12,8 @@
 
 	<artifactId>dartscores-2000</artifactId>
 	<packaging>war</packaging>
-	<name>Spring Boot Web JSP Sample</name>
+	<name>Darts 2000</name>
 	<description>DartScores 2000</description>
-	<properties>
-		<main.basedir>${basedir}/../..</main.basedir>
-		<m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot>
-	</properties>
 	<dependencies>
 		<!-- Compile -->
 		<dependency>

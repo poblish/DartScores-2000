@@ -27,7 +27,7 @@ public class WelcomeController {
 
 	@GetMapping("/")
 	public String welcome(Map<String, Object> model) {
-		return "welcome";
+		return "hiatus_one";
 	}
 
 	@RequestMapping("/foo")
