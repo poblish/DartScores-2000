@@ -1,6 +1,7 @@
 package org.hiatusuk.darts;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import static org.hiatusuk.darts.DartScore.kCanFinishWithAnyDart;
@@ -99,6 +100,8 @@ public class DartsOutEnquiry
                 }
             }
         }
+
+        mDartsScoresList.sort(Comparator.comparingInt(DartScoreSet::getScore));
     }
 
     /*******************************************************************************

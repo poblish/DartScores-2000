@@ -20,6 +20,14 @@ class DartScore
         Assign( inNumber, inMultiple);
     }
 
+    public int getNumber() {
+        return mNumber;
+    }
+
+    public int getMultiple() {
+        return mMultiple;
+    }
+
     /*******************************************************************************
     *******************************************************************************/
     public void Assign( int inNumber, int inMultiple)

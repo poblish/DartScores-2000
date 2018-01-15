@@ -22,7 +22,7 @@ public class DartsOutEnquiryTest {
         assertThat( setsString(scores_170) ).isEqualTo("{[Treble 20, Treble 20, Bull]}");
 
         final List<DartScoreSet> scores_51_2 = new DartsOutEnquiry(51, 2, true).GetScores();
-        assertThat( setsString(scores_51_2) ).isEqualTo("{[1, Bull], [11, Double 20], [13, Double 19], [Treble 5, Double 18], [15, Double 18], [17, Double 17], [19, Double 16], [Treble 7, Double 15], [Outer Bull, Double 13], [Treble 9, Double 12], [Treble 11, Double 9], [Treble 13, Double 6], [Treble 15, Double 3]}");
+        assertThat( setsString(scores_51_2) ).isEqualTo("{[19, Double 16], [11, Double 20], [15, Double 18], [1, Bull], [13, Double 19], [Treble 5, Double 18], [17, Double 17], [Outer Bull, Double 13], [Treble 9, Double 12], [Treble 13, Double 6], [Treble 15, Double 3], [Treble 7, Double 15], [Treble 11, Double 9]}");
         assertThat( scores_51_2.size() ).isEqualTo(13);
 
 //        for ( int i = 0; i < 180; i++) {
@@ -33,7 +33,7 @@ public class DartsOutEnquiryTest {
 //        }
 
         final List<DartScoreSet> scores_24_2 = new DartsOutEnquiry(24, 2, false).GetScores();
-        assertThat( setsString(scores_24_2) ).isEqualTo("{[Double 12], [Double 1, Double 11], [2, Double 11], [Double 2, Double 10], [4, Double 10], [Treble 2, Double 9], [Double 3, Double 9], [6, Double 9], [Double 4, Double 8], [8, Double 8], [Double 5, Double 7], [10, Double 7], [Treble 4, Double 6], [Double 6, Double 6], [12, Double 6], [Double 7, Double 5], [14, Double 5], [Double 8, Double 4], [16, Double 4], [Treble 6, Double 3], [Double 9, Double 3], [18, Double 3], [Double 10, Double 2], [20, Double 2], [Double 11, Double 1]}");
+        assertThat( setsString(scores_24_2) ).isEqualTo("{[8, Double 8], [Double 12], [4, Double 10], [Double 4, Double 8], [12, Double 6], [16, Double 4], [20, Double 2], [2, Double 11], [6, Double 9], [10, Double 7], [14, Double 5], [Treble 4, Double 6], [Double 8, Double 4], [Double 2, Double 10], [Double 6, Double 6], [Treble 6, Double 3], [Double 9, Double 3], [18, Double 3], [Double 10, Double 2], [Treble 2, Double 9], [Double 11, Double 1], [Double 1, Double 11], [Double 3, Double 9], [Double 5, Double 7], [Double 7, Double 5]}");
         assertThat( scores_24_2.size() ).isEqualTo(25);
     }
 

@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 public class DartScoreSet
 {
     private ArrayList<DartScore> mSet = new ArrayList<>();
+    private int score = -999;
 
     public void Add( DartScore newScore)
     {
@@ -72,6 +73,93 @@ public class DartScoreSet
 //        }
 //        return total;
 //    }
+
+    public int getScore() {
+        if (score == -999) {
+            score = 0;
+
+            for ( int initialDartIdx = 0; initialDartIdx < mSet.size() - 1; initialDartIdx++) {
+                final DartScore initialDart = mSet.get(initialDartIdx);
+
+                if (initialDart.getNumber() == 20) {
+                    continue;
+                }
+
+                // Prefer singe darts!!
+                if (initialDart.getMultiple() == 2) {
+                    if (initialDart.getNumber() == 20 || initialDart.getNumber() == 16 || initialDart.getNumber() == 8) {
+                        score -= 6;  // not quite so bad
+                    }
+                    else {
+                        score -= 9;
+                    }
+                }
+                else if (initialDart.getMultiple() == 3) {
+                    score -= 6;
+                }
+            }
+
+            final DartScore last = mSet.get( mSet.size() - 1);
+
+            if (last.getMultiple() == 2) {
+                if (last.getNumber() == 16) {
+                    score += 10;
+                    if (mSet.size() == 1) {
+                        score += 10;
+                    }
+                    else if (mSet.size() == 2) {
+                        score += 5;
+                    }
+                }
+                else if (last.getNumber() == 20) {
+                    score += 8;
+                    if (mSet.size() == 1) {
+                        score += 10;
+                    }
+                    else if (mSet.size() == 2) {
+                        score += 5;
+                    }
+                }
+                else if (last.getNumber() == 18) {
+                    score += 4;
+                    if (mSet.size() == 1) {
+                        score += 2;
+                    }
+                }
+                else if (last.getNumber() == 12) {
+                    score += 4;
+                    if (mSet.size() == 1) {
+                        score += 2;
+                    }
+                }
+                else if (last.getNumber() == 8) {
+                    score += 8;
+                    if (mSet.size() == 1) {
+                        score += 5;
+                    }
+                    if (mSet.size() == 2) {
+                        score += 3;
+                    }
+                }
+                else if (last.getNumber() == 6) {
+                    score += 2;
+                }
+                else if (last.getNumber() == 3) {
+                    score =- 7;
+                }
+                else if (last.getNumber() == 1) {
+                    score =- 10;
+                }
+                else if (last.getNumber() % 2 == 0) {  // Prefer even doubles to odd
+                    score += 2;
+                }
+                else {
+                    score -= 2;
+                }
+            }
+        }
+        return -score;  // reverse order
+    }
 
     /*******************************************************************************
     *******************************************************************************/
