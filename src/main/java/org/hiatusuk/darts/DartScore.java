@@ -1,5 +1,7 @@
 package org.hiatusuk.darts;
 
+import java.util.Objects;
+
 /*******************************************************************************
 *******************************************************************************/
 class DartScore
@@ -26,11 +28,12 @@ class DartScore
         mMultiple = inMultiple;
     }
 
-    /*******************************************************************************
-    *******************************************************************************/
-    public boolean matches( DartScore obj)
-    {
-        return (( mNumber == obj.mNumber) && ( mMultiple == obj.mMultiple));
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final DartScore dartScore = (DartScore) o;
+        return mNumber == dartScore.mNumber && mMultiple == dartScore.mMultiple;
     }
 
     /*******************************************************************************

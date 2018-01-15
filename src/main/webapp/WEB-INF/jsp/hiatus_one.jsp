@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 
-<%@ page language="java" import="org.hiatusuk.darts.*, java.util.*" errorPage="errors.jsp" %>
+<%@ page language="java" import="org.hiatusuk.darts.*, java.util.*, java.util.stream.*" errorPage="errors.jsp" %>
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html lang="en">
 <head>
@@ -27,20 +26,14 @@
 	//////////////////////////////////////////////////
 
 	DartsOutEnquiry		theEnquiry = new DartsOutEnquiry( theTotal, theNumDartsLeft, exactlyThatNumDarts);
-	Vector				theResults = theEnquiry.GetScores();
+	List<DartScoreSet>  theResults = theEnquiry.GetScores();
 
-	UDartScoreUtils.RemoveAllDuplicates(theResults);
-
-	if ( theResults.size() > 0)
-	{
+	if ( theResults.size() > 0) {
 		int	theNumMatchesToShow = ( theResults.size() > theMaxNumResultstoShow) ? theMaxNumResultstoShow : theResults.size();
 %>
 
 	<p class="emphasis">
-		<%=
-			"You can reach " + theTotal + " with " + theNumDartsLeft + " darts ...... " +
-			theNumMatchesToShow + " combinations found."
-		%>
+		<%= "You can reach " + theTotal + " with " + theNumDartsLeft + " darts ... " + theNumMatchesToShow + " combinations found." %>
 	</p>
 
 	<div class="andyscentre">
@@ -49,11 +42,13 @@
 			<th class="matchheader" width="60">Match</th> <th class="dartsheader">Combination</th>
 		</tr>
 <%
-		for ( int i = 0; i < theNumMatchesToShow; i++)
-		{
+
+        int i = 0;
+
+		for (/* Yuk, DartScoreSet not parsed */ Object eachSet : theResults.stream().limit(theNumMatchesToShow).collect( Collectors.toList() )) {
 %>		<tr>
-			<td class="matchcell"><%= ( i + 1) %></td>
-			<td class="dartsresultcell"><%= theResults.elementAt(i) %></td>
+			<td class="matchcell"><%= ++i %></td>
+			<td class="dartsresultcell"><%= eachSet %>.</td>
 		</tr>
 <%		} %>
 
@@ -61,8 +56,7 @@
 	</div>
 <%
 	}
-	else
-	{
+	else {
 %>
 	<p class="emphasis">Sorry, you cannot score <%= theTotal %> with <%= theNumDartsLeft %> darts!</p>
 
