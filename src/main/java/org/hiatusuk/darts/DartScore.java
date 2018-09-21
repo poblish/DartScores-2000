@@ -44,6 +44,11 @@ class DartScore
         return mNumber == dartScore.mNumber && mMultiple == dartScore.mMultiple;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(mNumber, mMultiple);
+    }
+
     /*******************************************************************************
     *******************************************************************************/
     public int intValue()
