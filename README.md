@@ -5,3 +5,9 @@ My very first Java Server Pages demo for Tomcat 3.x, presented in July 2000, and
     mvn spring-boot:run
 
 Runs on: http://localhost:8080/
+
+
+----
+### Screenshot
+
+![Screenshot](screenshot.png)
