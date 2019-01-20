@@ -18,7 +18,6 @@ package sample.jsp;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Map;
 
@@ -29,10 +28,4 @@ public class WelcomeController {
 	public String welcome(Map<String, Object> model) {
 		return "hiatus_one";
 	}
-
-	@RequestMapping("/foo")
-	public String foo(Map<String, Object> model) {
-		throw new RuntimeException("Foo");
-	}
-
 }
