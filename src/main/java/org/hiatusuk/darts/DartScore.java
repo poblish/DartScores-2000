@@ -51,13 +51,6 @@ class DartScore
 
     /*******************************************************************************
     *******************************************************************************/
-    public int intValue()
-    {
-        return ( mNumber * mMultiple);
-    }
-
-    /*******************************************************************************
-    *******************************************************************************/
     public static int GetHighestMultipleForDart( int inIndex)
     {
         return ( inIndex < kHighestSingleScore) ? kHighestMultipleAllowed : kHighestMultipleForBull;

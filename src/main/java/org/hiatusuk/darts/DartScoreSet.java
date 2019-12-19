@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 *******************************************************************************/
 public class DartScoreSet
 {
-    private ArrayList<DartScore> mSet = new ArrayList<>();
+    private final ArrayList<DartScore> mSet = new ArrayList<>();
     private int score = -999;
 
     public void Add( DartScore newScore)

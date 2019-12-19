@@ -12,13 +12,17 @@ import static org.hiatusuk.darts.DartScore.kLowestSingleScore;
 public class DartsOutEnquiry
 {
     private DartScoreSet    m_TempScoreSet;
-    private List<DartScoreSet> mDartsScoresList = new ArrayList<>(50);
+    private final List<DartScoreSet> mDartsScoresList = new ArrayList<>(50);
     private int             m_NumDartsAvailable;
-    private int             mNumDartValues = DartScore.kHighestSingleScore - kLowestSingleScore + 2;
-    private int             mDartScoreArray[] = new int [ mNumDartValues ];
+    private final int             mNumDartValues = DartScore.kHighestSingleScore - kLowestSingleScore + 2;
+    private final int[] mDartScoreArray = new int [ mNumDartValues ];
 
     private int         m_CurrentFinishingMultiple;
-    private int         m_ThePointsRemaining, m_TotalOnTheFinishingDart, m_ValueOfTheFinishingDart, m_Scores[], m_Multiples[];
+    private int         m_ThePointsRemaining;
+    private int m_TotalOnTheFinishingDart;
+    private int m_ValueOfTheFinishingDart;
+    private int[] m_Scores;
+    private int[] m_Multiples;
     private boolean     m_IgnoreNextOne;
 
     /*******************************************************************************
