@@ -3,21 +3,19 @@ package org.hiatusuk.darts;
 import java.util.Objects;
 
 /*******************************************************************************
-*******************************************************************************/
-class DartScore
-{
-    public final static int         kLowestSingleScore = 1, kHighestSingleScore = 20, kBullValue = 25;
-    public final static int         kHighestMultipleAllowed = 3, kHighestMultipleForBull = 2;
-    public final static boolean     kCanFinishWithAnyDart = false;
-    public final static int         kMultipleNeededForLastDart = 2;
-    public final static int         kHighestOneDartScore = kHighestSingleScore * kHighestMultipleAllowed;
-    private int                     mNumber, mMultiple;
+ *******************************************************************************/
+class DartScore {
+    public final static int kLowestSingleScore = 1, kHighestSingleScore = 20, kBullValue = 25;
+    public final static int kHighestMultipleAllowed = 3, kHighestMultipleForBull = 2;
+    public final static boolean kCanFinishWithAnyDart = false;
+    public final static int kMultipleNeededForLastDart = 2;
+    public final static int kHighestOneDartScore = kHighestSingleScore * kHighestMultipleAllowed;
+    private int mNumber, mMultiple;
 
     /*******************************************************************************
-    *******************************************************************************/
-    public DartScore( int inNumber, int inMultiple)
-    {
-        Assign( inNumber, inMultiple);
+     *******************************************************************************/
+    public DartScore(int inNumber, int inMultiple) {
+        Assign(inNumber, inMultiple);
     }
 
     public int getNumber() {
@@ -29,10 +27,9 @@ class DartScore
     }
 
     /*******************************************************************************
-    *******************************************************************************/
-    public void Assign( int inNumber, int inMultiple)
-    {
-        mNumber   = inNumber;
+     *******************************************************************************/
+    public void Assign(int inNumber, int inMultiple) {
+        mNumber = inNumber;
         mMultiple = inMultiple;
     }
 
@@ -50,49 +47,34 @@ class DartScore
     }
 
     /*******************************************************************************
-    *******************************************************************************/
-    public static int GetHighestMultipleForDart( int inIndex)
-    {
-        return ( inIndex < kHighestSingleScore) ? kHighestMultipleAllowed : kHighestMultipleForBull;
+     *******************************************************************************/
+    public static int GetHighestMultipleForDart(int inIndex) {
+        return (inIndex < kHighestSingleScore) ? kHighestMultipleAllowed : kHighestMultipleForBull;
     }
 
     /*******************************************************************************
-    *******************************************************************************/
+     *******************************************************************************/
     @Override
-    public String toString()
-    {
-        if ( mNumber == kBullValue)
-        {
-            if ( mMultiple == 2)
-            {
+    public String toString() {
+        if (mNumber == kBullValue) {
+            if (mMultiple == 2) {
                 return "Bull";
-            }
-            else if ( mMultiple == 1)
-            {
+            } else if (mMultiple == 1) {
                 return "Outer Bull";
-            }
-            else
-            {
+            } else {
                 return "***" + mMultiple + "***";
             }
-        }
-        else
-        {
-            String      thePrefix;
+        } else {
+            String thePrefix;
 
-            if ( mMultiple == 4)        // !!!!
+            if (mMultiple == 4)        // !!!!
             {
                 thePrefix = "Quadruple ";
-            }
-            else if ( mMultiple == 3)
-            {
+            } else if (mMultiple == 3) {
                 thePrefix = "Treble ";
-            }
-            else if ( mMultiple == 2)
-            {
+            } else if (mMultiple == 2) {
                 thePrefix = "Double ";
-            }
-            else    thePrefix = "";
+            } else thePrefix = "";
 
             return thePrefix + mNumber;
         }

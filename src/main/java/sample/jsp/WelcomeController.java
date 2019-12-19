@@ -16,17 +16,17 @@
 
 package sample.jsp;
 
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.Map;
 
 @SuppressWarnings("unused")
 @Controller
 public class WelcomeController {
 
-	@GetMapping("/")
-	public String welcome(Map<String, Object> model) {
-		return "hiatus_one";
-	}
+    @GetMapping("/")
+    public String welcome(Map<String, Object> model) {
+        return "hiatus_one";
+    }
 }

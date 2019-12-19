@@ -5,29 +5,25 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /*******************************************************************************
-*******************************************************************************/
-public class DartScoreSet
-{
+ *******************************************************************************/
+public class DartScoreSet {
     private final ArrayList<DartScore> mSet = new ArrayList<>();
     private int score = -999;
 
-    public void Add( DartScore newScore)
-    {
+    public void Add(DartScore newScore) {
         mSet.add(newScore);
     }
 
     /*******************************************************************************
-    *******************************************************************************/
-    public boolean matches(DartScoreSet obj)
-    {
-        if ( mSet.size() == obj.mSet.size())
-        {
-            List<DartScore>  ours  = (List<DartScore>) mSet.clone();
+     *******************************************************************************/
+    public boolean matches(DartScoreSet obj) {
+        if (mSet.size() == obj.mSet.size()) {
+            List<DartScore> ours = (List<DartScore>) mSet.clone();
             List<DartScore> theirs = (List<DartScore>) obj.mSet.clone();
 
-            DartScore   iScore;
-            int         n = ours.size() - 1, j, count = 0;
-            boolean     foundMatch;
+            DartScore iScore;
+            int n = ours.size() - 1, j, count = 0;
+            boolean foundMatch;
 
             // Compare two sets of three objects, which are equal if they contain the same 3 objects
             // though IN ANY ORDER. ABC and CAB is ok. What we do is start with the first object in the
@@ -41,11 +37,11 @@ public class DartScoreSet
             // item 1 (A again!), so is item 2 (B). But then we'd have to match the other way round to
             // find that C wasn't in the first set. Not a good strategy.
 
-            while ( count < n) {
+            while (count < n) {
                 iScore = ours.get(0);
                 foundMatch = false;
-                for ( j = 0; j <= ( n - count); ++j) {
-                    if ( iScore.equals(theirs.get(j))) {
+                for (j = 0; j <= (n - count); ++j) {
+                    if (iScore.equals(theirs.get(j))) {
                         ours.remove(0);
                         theirs.remove(j);
                         foundMatch = true;
@@ -78,7 +74,7 @@ public class DartScoreSet
         if (score == -999) {
             score = 0;
 
-            for ( int initialDartIdx = 0; initialDartIdx < mSet.size() - 1; initialDartIdx++) {
+            for (int initialDartIdx = 0; initialDartIdx < mSet.size() - 1; initialDartIdx++) {
                 final DartScore initialDart = mSet.get(initialDartIdx);
 
                 if (initialDart.getNumber() == 20) {
@@ -89,50 +85,42 @@ public class DartScoreSet
                 if (initialDart.getMultiple() == 2) {
                     if (initialDart.getNumber() == 20 || initialDart.getNumber() == 16 || initialDart.getNumber() == 8) {
                         score -= 6;  // not quite so bad
-                    }
-                    else {
+                    } else {
                         score -= 9;
                     }
-                }
-                else if (initialDart.getMultiple() == 3) {
+                } else if (initialDart.getMultiple() == 3) {
                     score -= 6;
                 }
             }
 
-            final DartScore last = mSet.get( mSet.size() - 1);
+            final DartScore last = mSet.get(mSet.size() - 1);
 
             if (last.getMultiple() == 2) {
                 if (last.getNumber() == 16) {
                     score += 10;
                     if (mSet.size() == 1) {
                         score += 10;
-                    }
-                    else if (mSet.size() == 2) {
+                    } else if (mSet.size() == 2) {
                         score += 5;
                     }
-                }
-                else if (last.getNumber() == 20) {
+                } else if (last.getNumber() == 20) {
                     score += 8;
                     if (mSet.size() == 1) {
                         score += 10;
-                    }
-                    else if (mSet.size() == 2) {
+                    } else if (mSet.size() == 2) {
                         score += 5;
                     }
-                }
-                else if (last.getNumber() == 18) {
+                } else if (last.getNumber() == 18) {
                     score += 4;
                     if (mSet.size() == 1) {
                         score += 2;
                     }
-                }
-                else if (last.getNumber() == 12) {
+                } else if (last.getNumber() == 12) {
                     score += 4;
                     if (mSet.size() == 1) {
                         score += 2;
                     }
-                }
-                else if (last.getNumber() == 8) {
+                } else if (last.getNumber() == 8) {
                     score += 8;
                     if (mSet.size() == 1) {
                         score += 5;
@@ -140,20 +128,15 @@ public class DartScoreSet
                     if (mSet.size() == 2) {
                         score += 3;
                     }
-                }
-                else if (last.getNumber() == 6) {
+                } else if (last.getNumber() == 6) {
                     score += 2;
-                }
-                else if (last.getNumber() == 3) {
-                    score =- 7;
-                }
-                else if (last.getNumber() == 1) {
-                    score =- 10;
-                }
-                else if (last.getNumber() % 2 == 0) {  // Prefer even doubles to odd
+                } else if (last.getNumber() == 3) {
+                    score = -7;
+                } else if (last.getNumber() == 1) {
+                    score = -10;
+                } else if (last.getNumber() % 2 == 0) {  // Prefer even doubles to odd
                     score += 2;
-                }
-                else {
+                } else {
                     score -= 2;
                 }
             }
@@ -162,10 +145,9 @@ public class DartScoreSet
     }
 
     /*******************************************************************************
-    *******************************************************************************/
+     *******************************************************************************/
     @Override
-    public String toString()
-    {
+    public String toString() {
         return mSet.stream().map(DartScore::toString).collect(Collectors.joining(", "));
     }
 }

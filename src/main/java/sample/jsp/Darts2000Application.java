@@ -8,13 +8,13 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication
 public class Darts2000Application extends SpringBootServletInitializer {
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(Darts2000Application.class);
-	}
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Darts2000Application.class);
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(Darts2000Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Darts2000Application.class, args);
+    }
 
 }
