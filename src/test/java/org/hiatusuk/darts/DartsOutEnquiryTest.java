@@ -1,6 +1,6 @@
 package org.hiatusuk.darts;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,11 +17,11 @@ public class DartsOutEnquiryTest {
     public void getScores() {
 //        new DartsOutEnquiry(15, 3, true).GetScores();
 
-        final List<DartScoreSet> scores_170 = new DartsOutEnquiry(170, 3, true).GetScores();
+        var scores_170 = new DartsOutEnquiry(170, 3, true).GetScores();
         assertThat( scores_170.size() ).isEqualTo(1);
         assertThat( setsString(scores_170) ).isEqualTo("{[Treble 20, Treble 20, Bull]}");
 
-        final List<DartScoreSet> scores_51_2 = new DartsOutEnquiry(51, 2, true).GetScores();
+        var scores_51_2 = new DartsOutEnquiry(51, 2, true).GetScores();
         assertThat( setsString(scores_51_2) ).isEqualTo("{[19, Double 16], [11, Double 20], [15, Double 18], [1, Bull], [13, Double 19], [Treble 5, Double 18], [17, Double 17], [Outer Bull, Double 13], [Treble 9, Double 12], [Treble 13, Double 6], [Treble 15, Double 3], [Treble 7, Double 15], [Treble 11, Double 9]}");
         assertThat( scores_51_2.size() ).isEqualTo(13);
 
