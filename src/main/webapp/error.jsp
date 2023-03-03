@@ -1,4 +1,4 @@
-<%@ page isErrorPage="true" %>
+<%@ page %>
 
 <!DOCTYPE html>
 <html>
