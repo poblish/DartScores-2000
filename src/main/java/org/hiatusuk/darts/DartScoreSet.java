@@ -61,15 +61,6 @@ public class DartScoreSet {
         return false;
     }
 
-//    public int intValue()
-//    {
-//        int     total = 0;
-//        for (DartScore each : mSet) {
-//            total += each.intValue();
-//        }
-//        return total;
-//    }
-
     public int getScore() {
         if (score == -999) {
             score = 0;
