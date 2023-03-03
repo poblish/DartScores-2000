@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<%@ page language="java" import="org.hiatusuk.darts.*, java.util.*, java.util.stream.*" errorPage="errors.jsp" %>
+<%@ page language="java" import="org.hiatusuk.darts.*, java.util.*, java.util.stream.*" %>
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
