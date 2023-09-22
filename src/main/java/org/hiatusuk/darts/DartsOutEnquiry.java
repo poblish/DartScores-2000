@@ -7,8 +7,6 @@ import java.util.List;
 import static org.hiatusuk.darts.DartScore.kCanFinishWithAnyDart;
 import static org.hiatusuk.darts.DartScore.kLowestSingleScore;
 
-/*******************************************************************************
- *******************************************************************************/
 public class DartsOutEnquiry {
     private DartScoreSet m_TempScoreSet;
     private final List<DartScoreSet> mDartsScoresList = new ArrayList<>(50);
@@ -170,42 +168,39 @@ public class DartsOutEnquiry {
         }
     }
 
-    /*******************************************************************************
-     *******************************************************************************/
     public int DartIndexToValue(int inDartIndex) {
         return mDartScoreArray[inDartIndex];
     }
 
-    /*******************************************************************************
-     *******************************************************************************/
     public List<DartScoreSet> GetScores() {
         // removeAllDuplicates(mDartsScoresList);
         return mDartsScoresList;
     }
 
     // This is OK-ish, but algorithm seems overly aggressive
-    private static void removeAllDuplicates(List<DartScoreSet> inVector) {
-        int lastIndex = inVector.size() - 1;
+//    private static void removeAllDuplicates(List<DartScoreSet> inVector) {
+//        int lastIndex = inVector.size() - 1;
+//
+//        for (int i = 0; i < lastIndex; i++) {
+//            try {
+//                DartScoreSet iScore = inVector.get(i);
+//
+//                for (int j = i + 1; j <= lastIndex; j++) {
+//                    try {
+//                        DartScoreSet jScore = inVector.get(j);
+//
+//                        if (jScore.matches(iScore)) {
+//                            inVector.remove(jScore);
+//                            --j;
+//                        }
+//                    } catch (IndexOutOfBoundsException e) {
+//                        break;
+//                    }
+//                }
+//            } catch (IndexOutOfBoundsException e) {
+//                break;
+//            }
+//        }
+//    }
 
-        for (int i = 0; i < lastIndex; i++) {
-            try {
-                DartScoreSet iScore = inVector.get(i);
-
-                for (int j = i + 1; j <= lastIndex; j++) {
-                    try {
-                        DartScoreSet jScore = inVector.get(j);
-
-                        if (jScore.matches(iScore)) {
-                            inVector.remove(jScore);
-                            --j;
-                        }
-                    } catch (IndexOutOfBoundsException e) {
-                        break;
-                    }
-                }
-            } catch (IndexOutOfBoundsException e) {
-                break;
-            }
-        }
-    }
 }

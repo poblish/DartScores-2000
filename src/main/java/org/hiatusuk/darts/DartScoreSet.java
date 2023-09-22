@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/*******************************************************************************
- *******************************************************************************/
 public class DartScoreSet {
     private final ArrayList<DartScore> mSet = new ArrayList<>();
     private int score = -999;
@@ -14,8 +12,6 @@ public class DartScoreSet {
         mSet.add(newScore);
     }
 
-    /*******************************************************************************
-     *******************************************************************************/
     public boolean matches(DartScoreSet obj) {
         if (mSet.size() == obj.mSet.size()) {
             List<DartScore> ours = (List<DartScore>) mSet.clone();
@@ -135,8 +131,6 @@ public class DartScoreSet {
         return -score;  // reverse order
     }
 
-    /*******************************************************************************
-     *******************************************************************************/
     @Override
     public String toString() {
         return mSet.stream().map(DartScore::toString).collect(Collectors.joining(", "));

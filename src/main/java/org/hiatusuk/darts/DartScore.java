@@ -26,13 +26,12 @@ class DartScore {
         return mMultiple;
     }
 
-    /*******************************************************************************
-     *******************************************************************************/
     public void Assign(int inNumber, int inMultiple) {
         mNumber = inNumber;
         mMultiple = inMultiple;
     }
 
+    @SuppressWarnings("EqualsGetClass")
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -46,14 +45,10 @@ class DartScore {
         return Objects.hash(mNumber, mMultiple);
     }
 
-    /*******************************************************************************
-     *******************************************************************************/
     public static int GetHighestMultipleForDart(int inIndex) {
         return (inIndex < kHighestSingleScore) ? kHighestMultipleAllowed : kHighestMultipleForBull;
     }
 
-    /*******************************************************************************
-     *******************************************************************************/
     @Override
     public String toString() {
         if (mNumber == kBullValue) {
