@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Darts 2000')}"></head>
+<body>
+<table width="100%">
+<tr>
+	<td><h1>Darts 2000 / Hiatus One <strike>JSP</strike> Thymeleaf</h1></td>
+	<td class="htmlpiccell" width="88">
+		<a href="http://validator.w3.org/check/referer">
+			<img src="images/vxhtml10" alt="Valid XHTML 1.0!" height="31" width="88" />
+		</a>
+	</td>
+</tr>
+</table>
+<hr />
+<table>
+<tr>
+	<td> <img src="images/baxter.gif" border="0" alt="Ronnie Baxter" /> </td>
+	<td class="main">
+		<h2>Introducing Ronnie Baxter's Fun with Darts</h2>
+		&nbsp;&quot;Aw-right my san! This is awl the rage at the car-lot dahn Romford way. Let me tell you, this is diamond.
+		<br />
+		&nbsp;Choose the Darts total you want to reach, and the number of darts you have left.
+		<br />
+		&nbsp;In return I'll give you all the possible outcomes...&quot;
+	</td>
+</tr>
+</table>
+<hr />
+
+<form method="get">
+	<div class="andyscentre">
+	<table border="0" width="60%">
+		<tr><th class="searchheader" colspan="2">Dart Scores Search</th></tr>
+		<tr>
+			<td class="entryheader" width="60%">Your Target:</td>
+			<td class="entrycell"><input type="text" name="total" size="10" th:value="${total}" /></td>
+		</tr>
+		<tr>
+			<td class="entryheader">Number of darts left:</td>
+			<td class="entrycell"><input type="text" name="darts_left" size="6" th:value="${dartsLeft}" /></td>
+		</tr>
+		<tr>
+			<td class="entryheader">Use exactly that number?:</td>
+			<td class="entrycell">
+				<input type="radio" name="exactly_n" value="Yes" th:checked="${exactly}" />Yes&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="exactly_n" value="No" th:checked="${!exactly}" />No
+			</td>
+		</tr>
+		<tr>
+			<td class="entryheader">Maximum Results:</td>
+			<td class="entrycell"><input type="text" name="max_results" size="8" th:value="${maxResults}" /></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="findbuttoncell"><input type="submit" value="&nbsp;Find Scores&nbsp;" /></td>
+		</tr>
+	</table>
+	</div>
+</form>
+
+<hr />
+
+<th:block th:if="${!results.isEmpty()}">
+	<p class="emphasis"
+	   th:text="|You can reach ${total} with ${dartsLeft} darts ... ${results.size()} combinations found.|"></p>
+
+	<div class="andyscentre">
+	<table border="1" width="80%">
+		<tr>
+			<th class="matchheader" width="60">Match</th> <th class="dartsheader">Combination</th>
+		</tr>
+		<tr th:each="result, stat : ${results}">
+			<td class="matchcell" th:text="${stat.count}"></td>
+			<td class="dartsresultcell" th:text="|${result}.|"></td>
+		</tr>
+	</table>
+	</div>
+</th:block>
+<p class="emphasis" th:if="${results.isEmpty()}"
+   th:text="|Sorry, you cannot score ${total} with ${dartsLeft} darts!|"></p>
+
+<div th:replace="~{fragments :: footer}"></div>
+</body>
+</html>
